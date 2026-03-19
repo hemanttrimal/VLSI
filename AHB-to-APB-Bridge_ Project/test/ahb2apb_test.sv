@@ -41,7 +41,7 @@ function void ahb2apb_test::config_ahb2apb();
 					if(!uvm_config_db #(virtual ahb2apb_if)::get(this, "", "vif_ahb", ahb_cfg[i].vif))
 						`uvm_fatal("VIF CONFIG.WRITE", "cannot get cfg")
 					ahb_cfg[i].is_active = UVM_ACTIVE;
-					e_cfg.ahb_agt_cfg[i] = ahb_cfg[i];
+					e_cfg.ahb_agt_cfg[i] = ahb_cfg[i]; // ahb_cfg [i] Take local config → e_cfg.ahb_agt_cfg[]store it in env_config
 				end
 		end
 
